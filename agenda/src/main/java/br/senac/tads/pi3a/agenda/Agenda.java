@@ -78,8 +78,8 @@ public class Agenda {
         Agenda agenda = new Agenda();
         agenda.executar();
 
-        for (int i = 0; i < 10; i++) {
-            if (i % 2 == 0) {
+        for (int i = 0; i < 100; i++) {
+            if (i % 5 == 0) {
                 System.out.println("contador: " + i);
             }
             System.out.println("Teste");
