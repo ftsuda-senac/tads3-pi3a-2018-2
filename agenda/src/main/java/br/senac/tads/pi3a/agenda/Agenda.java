@@ -84,5 +84,8 @@ public class Agenda {
             }
             System.out.println("Teste");
         }
+        
+        int x = 10;
+        System.out.println("Valor x: " + x);
     }
 }
