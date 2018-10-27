@@ -1,4 +1,4 @@
-package br.senac.tads.pi3a.exemplos.web;
+package br.senac.tads.pi3a.exemplos.web.modelo;
 
 import java.math.BigDecimal;
 

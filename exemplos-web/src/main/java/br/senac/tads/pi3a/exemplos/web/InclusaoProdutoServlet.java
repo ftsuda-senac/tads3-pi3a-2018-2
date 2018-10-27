@@ -5,6 +5,7 @@
  */
 package br.senac.tads.pi3a.exemplos.web;
 
+import br.senac.tads.pi3a.exemplos.web.modelo.Produto;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.math.BigDecimal;
