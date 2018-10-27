@@ -27,6 +27,11 @@ public class LoginServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request,
             HttpServletResponse response)
             throws ServletException, IOException {
+        
+        String code = request.getParameter("code");
+        if ("99".equals(code)) {
+            request.setAttribute("msgErro", "Vc saiu do sistema");
+        }
 
         RequestDispatcher dispatcher
                 = request.getRequestDispatcher(

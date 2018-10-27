@@ -6,7 +6,6 @@
 package br.senac.tads.pi3a.exemplos.web;
 
 import java.io.IOException;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,25 +17,17 @@ import javax.servlet.http.HttpSession;
  *
  * @author fernando.tsuda
  */
-@WebServlet(name = "HomeServlet", urlPatterns = {"/home"})
-public class HomeServlet extends HttpServlet {
+@WebServlet(name = "LogoutServlet", urlPatterns = {"/logout"})
+public class LogoutServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request,
             HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession sessao = request.getSession();
+        sessao.invalidate();
+        response.sendRedirect(request.getContextPath() + "/login?code=99");
         
-//        // COMENTADO PQ LOGICA ESTA SENDO TRATADA PELO FILTRO
-//        HttpSession sessao = request.getSession();
-//        if (sessao.getAttribute("usuario") == null) {
-//            response.sendRedirect(request.getContextPath() + "/login");
-//            return;
-//        }
-
-        RequestDispatcher dispatcher
-                = request.getRequestDispatcher(
-                        "/WEB-INF/jsp/home.jsp");
-        dispatcher.forward(request, response);
     }
-
+    
 }

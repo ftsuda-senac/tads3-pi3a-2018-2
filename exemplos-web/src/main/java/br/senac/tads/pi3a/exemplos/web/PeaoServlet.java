@@ -12,30 +12,24 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author fernando.tsuda
  */
-@WebServlet(name = "HomeServlet", urlPatterns = {"/home"})
-public class HomeServlet extends HttpServlet {
+@WebServlet(name = "PeaoServlet", urlPatterns = {"/protegido/peao-page"})
+public class PeaoServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request,
             HttpServletResponse response)
             throws ServletException, IOException {
-        
-//        // COMENTADO PQ LOGICA ESTA SENDO TRATADA PELO FILTRO
-//        HttpSession sessao = request.getSession();
-//        if (sessao.getAttribute("usuario") == null) {
-//            response.sendRedirect(request.getContextPath() + "/login");
-//            return;
-//        }
 
+        request.setAttribute("titulo", "Página do PEAO");
+        request.setAttribute("msg", "Usuário logado possui papel \"PEAO\"");
         RequestDispatcher dispatcher
                 = request.getRequestDispatcher(
-                        "/WEB-INF/jsp/home.jsp");
+                        "/WEB-INF/jsp/resultado.jsp");
         dispatcher.forward(request, response);
     }
 
